@@ -17,7 +17,17 @@ const UpdateBest = () => {
     updateBestCarousel();
 }
 
-
+const updateByDirector = (director) =>{
+    
+    const updateDirectorCarousel = async () => {
+        try {
+            const res = await axios.put(`http://localhost:4000/api/carousels/` + director)
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    updateDirectorCarousel();
+}
 
 const UpdateNewest = () => {
         const updateNewestCarousel = async () => {
@@ -42,4 +52,5 @@ const UpdateGolden = () => {
 }
 export {
     UpdateAll,
+    updateByDirector
 }

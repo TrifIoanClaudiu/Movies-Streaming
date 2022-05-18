@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .movieDetails {
     background-color: var(--main-color);
@@ -30,17 +31,27 @@
                 border: 3px solid white;
             }
 
-            .rating {
-                color: white;
-                padding-left: 15px;
-                font-size: 20px;
-                cursor: pointer;
+            .leftInfo {
+                .rating {
+                    color: white;
+                    padding-left: 15px;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+                .director{
+                    padding-left: 15px;
+                    padding-top: 5px;
+                    font-size: 20px;
+                    color: #B3E8E5;
+                    font-family: 'Bebas Neue', cursive;
+                }
             }
         }
 
         .right {
             padding-left: 30px;
             width: 65vw;
+
             .desc {
                 color: #82DBD8;
                 font-size: 22px;

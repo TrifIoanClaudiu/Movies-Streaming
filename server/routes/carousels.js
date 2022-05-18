@@ -135,22 +135,8 @@ router.put("/golden", async (req, res) => {
       $match: {
         $expr: {
           $and: [
-            {
-              $gte: [
-                {
-                  $toInt: "$year"
-                },
-                1939
-              ]
-            },
-            {
-              $lte: [
-                {
-                  $toInt: "$year"
-                },
-                1959
-              ]
-            }
+            { $gte: [{ $toInt: "$year" }, 1939] },
+            { $lte: [{ $toInt: "$year" }, 1959] }
           ]
         }
       }
@@ -206,7 +192,6 @@ router.post("/rating", async (req, res) => {
 router.put("/rating", async (req, res) => {
   let carouselTemp = [];
   carouselTemp = await Movie.find().sort({ rating: -1 }).limit(10);
-
   try {
     const filter = "627d6e54f1a6fc3a220b9ffa"
     ids = []
@@ -264,7 +249,7 @@ router.post("/genres/:genre", async (req, res) => {
     { $match: { genre: req.params.genre } },
     { $sample: { size: 10 } }
   ]);
-  try{
+  try {
     ids = []
     carouselTemp.forEach(elem => {
       ids.push(elem._id);
@@ -276,10 +261,33 @@ router.post("/genres/:genre", async (req, res) => {
     });
     newCarousel.save();
     res.status(200).json(newCarousel);
-  }catch(err){
-  res.status(500).json(err);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
+//Update Same Director
+router.put("/:director", async (req, res) => {
+  let carouselTemp = [];
+  carouselTemp = await Movie.aggregate([
+    { $match: { director: req.params.director }, },
+    { $sample: { size: 10 } }
+  ]);
+  try {
+    const filter = "6284ff3fda319a1b2f97858b"
+    ids = []
+    carouselTemp.forEach(elem => {
+      ids.push(elem._id);
+    })
+    const update = { content: ids };
+    const updatedCarousel = await Carousel.findByIdAndUpdate(filter, update, {
+      new: true
+    });
+    res.status(200).json(updatedCarousel);
+  }
+  catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 module.exports = router;
