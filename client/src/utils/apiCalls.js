@@ -50,6 +50,7 @@ const UpdateGolden = () => {
     };
     updateGoldenCarousel();
 }
+
 export {
     UpdateAll,
     updateByDirector

@@ -16,6 +16,7 @@ export default function MovieDetails() {
     })
     const [loading, setLoading] = useState(false);
     const [Carousels, setCarousels] = useState([]);
+
     useEffect(() => {
         setLoading(true);
         if(getItemValue('reloadCount') < 2) {

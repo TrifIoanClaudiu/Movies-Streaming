@@ -2,14 +2,30 @@ import "./NavBar.scss";
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getItemValue, setItemValue } from '../../utils/localStorageUtils';
+import axios from "axios";
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [movie, setMovie] = useState({});
 
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => window.onscroll = null;
     }
+	useEffect(() => {
+		const getMovie = async () => {
+			try {
+				const res = await axios.get(`http://localhost:4000/api/movies/random`, {
+				});
+				setMovie(res.data[0]);
+			} catch (err) {
+				console.log(err);
+			}
+		}
+		getMovie()
+	},[])
+
     return (
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
             <div className="container">
@@ -25,7 +41,7 @@ function NavBar() {
                     <Link to="/categories" className="link">
                         <span>CATEGORIES</span>
                     </Link>
-                    <Link to="/random" className="link">
+                    <Link to={"/moviedetail"} state={{ movie:movie }} className='link'>
                         <span>RANDOM</span>
                     </Link>
                 </div>
