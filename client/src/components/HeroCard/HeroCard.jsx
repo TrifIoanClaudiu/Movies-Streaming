@@ -33,7 +33,7 @@ function HeroCard() {
 			<p className="movie-description">{movie.desc}</p>
 			<div className="hero-btns">
 
-				<Link to={'/moviedetail/'} className="navigation-btns" id="more-info-btn">
+				<Link to={"/moviedetail"} state={{ movie:movie }} className="navigation-btns" id="more-info-btn">
 					More Info
 				</Link>
 			</div>
