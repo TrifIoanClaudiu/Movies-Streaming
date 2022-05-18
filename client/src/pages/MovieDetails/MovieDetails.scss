@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .movieDetails {
     background-color: var(--main-color);
     overflow: hidden;
 
     .title {
         h1 {
-            color: white;
+            color: #2F8F9D;
             text-align: center;
             padding-top: 40px;
-            font-size: 30px;
+            font-size: 40px;
+            font-family: 'Macondo', cursive;
         }
     }
 
@@ -19,11 +23,14 @@
 
         .left {
             padding-left: 10px;
+
             img {
                 width: 35vw;
                 height: 60vh;
+                border: 3px solid white;
             }
-            .rating{
+
+            .rating {
                 color: white;
                 padding-left: 15px;
                 font-size: 20px;
@@ -34,7 +41,16 @@
         .right {
             padding-left: 30px;
             width: 65vw;
-            color: white;
+            .desc {
+                color: #82DBD8;
+                font-size: 22px;
+                padding-top: 10px;
+                font-family: 'Lobster', cursive;
+            }
         }
+    }
+
+    .carousel {
+        padding-top: 10px;
     }
 }

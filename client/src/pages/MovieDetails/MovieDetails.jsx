@@ -1,42 +1,64 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useLayoutEffect } from 'react'
 import "./MovieDetails.scss"
 import YoutubeEmbed from '../../components/YoutubeEmbed/YoutubeEmbeded'
 import Carousel from "../../components/Carousel/Carousel"
 import axios from 'axios'
 import NavBar from '../../components/NavBar/NavBar'
+import Footer from '../../components/Footer/Footer'
+import { useLocation} from 'react-router-dom'
 
 export default function MovieDetails() {
-    const trailer = "";
-
-
+    const location = useLocation();
+    useLayoutEffect(() => {
+        window.scrollTo(0,0);
+    })
+    const [loading, setLoading] = useState(false);
+    const [Carousels, setCarousels] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        const getCarousels = async () => {
+            const genres = ["BestRated"];
+            for (const genre of genres) {
+                try {
+                    const res = await axios.get(`http://localhost:4000/api/carousels/` + genre);
+                    setCarousels(carouselsPrev => [...carouselsPrev, ...res.data]);
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        }
+        getCarousels();
+        setLoading(false);
+    }, []);
     return (
         <div className='movieDetails'>
             <NavBar />
             <div className="title">
-                <h1>Movie Title</h1>
+                <h1>{location.state.movie.title}</h1>
             </div>
             <div className="top">
                 <div className="left">
-                    <img src="https://www.wwe.com/f/styles/wwe_large/public/all/2019/10/RAW_06202016rf_1606--3d3997f53e6f3e9277cd5a67fbd8f31f.jpg" alt="" />
+                    <img src={location.state.movie.img} alt="" />
                     <div className="rating">
-                        ⭐⭐⭐⭐⭐ 4.5
+                        ⭐⭐⭐⭐⭐ {location.state.movie.rating}
                     </div>
                 </div>
                 <div className="right">
-                    <YoutubeEmbed className='rightTrailer' embedId={trailer} useFor="Details" />
+                    <YoutubeEmbed className='rightTrailer' embedId={location.state.movie.trailer} useFor="Details" />
                     <div className="desc">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa ad amet magnam non sed sunt ullam, omnis maxime expedita accusantium animi. Harum, corrupti! Non, molestiae perferendis. Dolores id cum rerum?
+                        {location.state.movie.desc}
                     </div>
                 </div>
             </div>
 
             <div className="carousel">
-                {/* <Carousel key={item._id} genre="Drama" /> */}
+                {!loading && Carousels.map((carousel) => (
+                    <Carousel key={carousel._id} carousel={carousel} />
+                ))}
             </div>
-
             <div className="comments">
             </div>
-
+            <Footer />
         </div>
     )
 }
