@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Literata:wght@200&display=swap');
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.gradient{
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+.BodyImage {
+    background-image: url("https://payload.cargocollective.com/1/11/367710/13568488/MOVIECLASSICSerikweb_2500_2500.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    font-family: 'Literata', serif;
+}
+
+.continue-btn {
+    box-shadow: 0px 0px 0px 0px #0a2f66;
+    background: linear-gradient(to bottom, #175ca1 5%, #1a407a 100%);
+    background-color: #175ca1;
+    border-radius: 12px;
+    border: 2px solid #1b5096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Courier New;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 34px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #144e87;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.continue-btn:hover {
+    background: linear-gradient(to bottom, #1a407a 5%, #194778 100%);
+    background-color: #1a407a;
+}

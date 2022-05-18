@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Roboto:wght@100&display=swap');
+
+.registerImage {
+    background-color: var(--main-color);
+    background-image: url("https://wallpapercave.com/wp/wp9298192.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150vh;
+    width: 100%;
+    text-align: center;
+}
+
+.login {
+
+    h1 {
+        font-size: 80px;
+        color: #187498;
+        font-family: 'Oleo Script Swash Caps', cursive;
+    }
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+
+    .form {
+        .icon {
+            font-size: 40px;
+            color: #033b50;
+        }
+
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        padding-top: 0;
+
+        input {
+            flex: 9;
+            height: 100%;
+            padding: 7px 10px;
+            margin: 5px;
+        }
+
+    }
+
+    .button {
+        box-shadow:inset 0px 1px 0px 0px #3dc21b;
+        background:linear-gradient(to bottom, #1c8037 5%, #5cbf2a 100%);
+        background-color:#1c8037;
+        border-radius:15px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:15px 35px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;
+    }
+    .button:hover {
+        background:linear-gradient(to bottom, #5cbf2a 5%, #1c8037 100%);
+        background-color:#5cbf2a;
+    }
+    .button:active {
+        position:relative;
+        top:1px;
+    }
+    
+    
+    
+}

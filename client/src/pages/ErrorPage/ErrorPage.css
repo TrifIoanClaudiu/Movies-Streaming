@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+@keyframes floating {
+  from {
+    transform: translateY(0px);
+  }
+  65% {
+    transform: translateY(15px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.Mars {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  height: 27vmin;
+  background: url("https://assets.codepen.io/1538474/mars.svg") no-repeat bottom center;
+  background-size: cover;
+}
+
+.Logo404 {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 16vmin;
+  width: 30vmin;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .Logo404 {
+    top: 45vmin;
+  }
+}
+
+.Meteor {
+  position: absolute;
+  right: 2vmin;
+  top: 16vmin;
+}
+
+.Title {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 5vmin;
+  margin-top: 31vmin;
+}
+
+@media (max-width: 1024px) {
+  .Title {
+    margin-top: 65vmin;
+  }
+}
+
+.Subtitle {
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 3.5vmin;
+  margin-top: -1vmin;
+  margin-bottom: 9vmin;
+}
+
+.btn-back {
+  border: 1px solid white;
+  color: #B20600;
+  padding: 12px;
+  font-family: "Nunito", sans-serif;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-back:hover {
+  background: #B20600;
+  color: #4d007d;
+}
+
+@media (max-width: 1024px) and (min-width: 320px) {
+  .btn-back {
+    width: 70%;
+    padding: 3%;
+  }
+}
+
+.Astronaut {
+  position: absolute;
+  top: 18vmin;
+  left: 10vmin;
+  height: 30vmin;
+  animation: floating 3s infinite ease-in-out;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .Astronaut {
+    top: 2vmin;
+  }
+}
+
+.Spaceship {
+  position: absolute;
+  bottom: 15vmin;
+  right: 24vmin;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .Spaceship {
+    width: 45vmin;
+    bottom: 18vmin;
+  }
+}

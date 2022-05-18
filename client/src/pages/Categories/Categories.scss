@@ -1,0 +1,10 @@
+body{
+    background-color: var(--main-color);
+
+    .Categories{
+        overflow: hidden;
+        .Carousels{
+            margin-top: 75px;
+        }
+    }
+}
