@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie");
-const verify = require("../verifyToken");
 
 //CREATE
 
@@ -16,7 +15,7 @@ router.post("/", async (req, res) => {
 
 //UPDATE
 
-router.put("/:id", verify, async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const updatedMovie = await Movie.findByIdAndUpdate(
             req.params.id,
@@ -33,7 +32,7 @@ router.put("/:id", verify, async (req, res) => {
 
 //DELETE
 
-router.delete("/:id", verify, async (req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
         await Movie.findByIdAndDelete(req.params.id);
         res.status(200).json("The movie has been deleted...");

@@ -9,6 +9,10 @@ function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [movie, setMovie] = useState({});
 
+    const handleLogout = () =>{
+        setItemValue('user', null);
+    }
+
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => window.onscroll = null;
@@ -48,7 +52,7 @@ function NavBar() {
                 <div className="right">
                     <SearchIcon className="icon Search" />
                     <LogoutIcon className='icon' />
-                    <Link to="/login" className="link">
+                    <Link onClick={handleLogout} to="/login" className="link">
                         <span>LOG OUT</span>
                     </Link>
                 </div>

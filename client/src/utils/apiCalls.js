@@ -1,4 +1,5 @@
 import axios from "axios";
+import { loginFailure, loginStart, loginSuccess } from "./authContext/AuthActions";
 
 const UpdateAll = () => {
     UpdateBest();
@@ -51,7 +52,19 @@ const UpdateGolden = () => {
     updateGoldenCarousel();
 }
 
+const login = async (user, dispatch) =>{
+    dispatch(loginStart());
+    try{
+        const res = await axios.post("http://localhost:4000/api/auth/login", user);
+        dispatch(loginSuccess(res.data));
+    }catch(err){
+        dispatch(loginFailure());
+    }
+}
+
+
 export {
     UpdateAll,
-    updateByDirector
+    updateByDirector,
+    login
 }
