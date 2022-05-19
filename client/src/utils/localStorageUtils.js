@@ -6,8 +6,8 @@ const getItemValue = (name) => {
     return localStorage.getItem(name);
 };
 
-const stopScrolling = () =>{
-    document.body.style.overflow = "hidden";
+const stopScrolling = (value) => {
+    value ? document.body.style.overflow = "hidden" : document.body.style.overflow = "";
 }
 
 export {

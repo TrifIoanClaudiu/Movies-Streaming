@@ -8,11 +8,13 @@ import axios from "axios";
 import {UpdateAll} from "../../utils/apiCalls"
 import { AuthContext } from '../../utils/authContext/AuthContext';
 import { Navigate } from 'react-router-dom';
+import { stopScrolling } from '../../utils/localStorageUtils';
 
 function HomePage() {
     const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const [Carousels, setCarousels] = useState([]);
+    stopScrolling(false);
     useEffect(() => {
         UpdateAll();
         setLoading(true);

@@ -9,7 +9,7 @@ import { login } from '../../utils/apiCalls';
 
 
 function LoginPage() {
-    stopScrolling();
+    stopScrolling(true);
     const { user } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
