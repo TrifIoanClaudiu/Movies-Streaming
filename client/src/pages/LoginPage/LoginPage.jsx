@@ -3,7 +3,7 @@ import "./LoginPage.scss"
 import { Link, Navigate } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
-import { getItemValue, stopScrolling } from '../../utils/localStorageUtils';
+import {stopScrolling } from '../../utils/localStorageUtils';
 import { AuthContext } from '../../utils/authContext/AuthContext';
 import { login } from '../../utils/apiCalls';
 

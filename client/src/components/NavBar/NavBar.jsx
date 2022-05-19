@@ -2,16 +2,14 @@ import "./NavBar.scss";
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'
-import { getItemValue, setItemValue } from '../../utils/localStorageUtils';
+import { useState, useEffect, useContext } from 'react'
 import axios from "axios";
+import { AuthContext } from "../../utils/authContext/AuthContext";
+import {logout} from "../../utils/authContext/AuthActions"
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [movie, setMovie] = useState({});
-
-    const handleLogout = () =>{
-        setItemValue('user', null);
-    }
+    const {dispatch} = useContext(AuthContext);
 
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -52,8 +50,8 @@ function NavBar() {
                 <div className="right">
                     <SearchIcon className="icon Search" />
                     <LogoutIcon className='icon' />
-                    <Link onClick={handleLogout} to="/login" className="link">
-                        <span>LOG OUT</span>
+                    <Link onClick={() => dispatch(logout())} to="/login" className="link">
+                        <span >LOG OUT</span>
                     </Link>
                 </div>
             </div>

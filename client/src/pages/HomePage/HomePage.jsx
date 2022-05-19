@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import "./HomePage.scss";
 import Footer from "../../components/Footer/Footer";
 import HeroCard from "../../components/HeroCard/HeroCard";
@@ -6,8 +6,11 @@ import NavBar from '../../components/NavBar/NavBar';
 import Carousel from '../../components/Carousel/Carousel';
 import axios from "axios";
 import {UpdateAll} from "../../utils/apiCalls"
+import { AuthContext } from '../../utils/authContext/AuthContext';
+import { Navigate } from 'react-router-dom';
 
 function HomePage() {
+    const { user } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
     const [Carousels, setCarousels] = useState([]);
     useEffect(() => {
@@ -27,6 +30,7 @@ function HomePage() {
         getCarousels();
         setLoading(false);
     }, []);
+    if (user !== null){
     return (
         <div className='Home'>
             <NavBar />
@@ -36,7 +40,9 @@ function HomePage() {
             ))}
             <Footer />
         </div>
-    );
+    );}else{
+        return <Navigate to="/login" />
+    }
 }
 
 export default HomePage;
