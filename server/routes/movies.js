@@ -67,10 +67,32 @@ router.get("/random", async (req, res) => {
 
 //GET ALL
 
-router.get("/", async (req, res) => {
+router.get("/search", async (req, res) => {
+    let listTemp = [];
+    listTemp = await Movie.find();
+
     try {
-        const movies = await Movie.find();
-        res.status(200).json(movies.reverse());
+        ids = [];
+        listTemp.forEach(elem => {
+            ids.push(elem._id);
+        })
+        res.status(200).json(ids);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+//GET BY TITLE
+router.get("/search/:query", async (req, res) => {
+    const nameQuery = req.params.query;;
+    let listTemp = [];
+    try {
+        listTemp = await Movie.find({ title: { $regex: '.*' + nameQuery + '.*', '$options' : 'i' } });
+        ids = []
+        listTemp.forEach(elem => {
+            ids.push(elem._id);
+        })
+        res.status(200).json(ids);
     } catch (err) {
         res.status(500).json(err);
     }

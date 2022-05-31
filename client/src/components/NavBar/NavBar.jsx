@@ -50,7 +50,9 @@ function NavBar() {
                     </Link>
                 </div>
                 <div className="right">
-                    <SearchIcon className="icon Search" />
+                    <Link to="/grid" className="link">
+                        <SearchIcon className="icon Search" />
+                    </Link>
                     <LogoutIcon className='icon' />
                     <Link onClick={() => dispatch(logout())} to="/login" className="link">
                         <span >LOG OUT</span>

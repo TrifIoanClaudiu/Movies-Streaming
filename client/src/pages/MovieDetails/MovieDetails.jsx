@@ -39,7 +39,7 @@ export default function MovieDetails() {
         }
         getCarousels();
         setLoading(false);
-    }, [location.state.movie.director], []);
+    },[location.state.movie.director], []);
     return (
         <div className='movieDetails'>
             <NavBar />
@@ -70,8 +70,6 @@ export default function MovieDetails() {
                 {!loading && Carousels.map((carousel) => (
                     <Carousel key={carousel._id} carousel={carousel} />
                 ))}
-            </div>
-            <div className="comments">
             </div>
             <Footer />
         </div>

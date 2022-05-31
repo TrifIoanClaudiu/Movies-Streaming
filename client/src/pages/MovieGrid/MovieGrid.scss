@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.grid{
+    background-color: var(--main-color);
+    overflow: hidden;
+
+    .search{
+        margin-top: 80px;
+        color:white;
+        input[type='text'] {
+            display: block;
+            padding: 10px;
+            font-size: 25px;
+            border: 0;
+            border-radius: 5px;
+            width: 60%;
+            margin: auto;
+            outline: none;
+            font-family: 'Oswald', sans-serif;
+          }
+    }
+    .movies{
+        margin: 50px 15px 0px 70px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4.5rem 1rem;
+    }
+}
