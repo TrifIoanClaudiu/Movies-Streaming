@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import "./GridCard.scss"
 import axios from 'axios'
 
@@ -18,10 +19,12 @@ export default function GridCard({ movie }) {
     }, [movie])
     return (
         <div className='gridCard'>
-            <img src={item.img} alt='' />
-            <div className="titleContainer">
-                <h1> {item.title}</h1>
-            </div>
+            <Link to={"/moviedetail"} state={{ movie: item }}>
+                <img src={item.img} alt='' />
+                <div className="titleContainer">
+                    <h1> {item.title}</h1>
+                </div>
+            </Link>
         </div>
     )
 }

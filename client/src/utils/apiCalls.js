@@ -58,6 +58,7 @@ const login = async (user, dispatch) =>{
         const res = await axios.post("http://localhost:4000/api/auth/login", user);
         dispatch(loginSuccess(res.data));
     }catch(err){
+        alert("Email or password incorrect");
         dispatch(loginFailure());
     }
 }

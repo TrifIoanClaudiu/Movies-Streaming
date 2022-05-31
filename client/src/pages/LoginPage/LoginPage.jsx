@@ -27,7 +27,7 @@ function LoginPage() {
                     <h1>Login</h1>
                     <div className="form">
                         <EmailIcon className='icon' />
-                        <input type="text"
+                        <input type="email"
                             placeholder="Email"
                             onChange={(e) => setEmail(e.target.value)}
                         />

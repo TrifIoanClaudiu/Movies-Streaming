@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
 .card {
     width: 225px;
     height: 120px;
     background-color: var(--main-color);
     margin-right: 5px;
+    padding-left: 10px;
     overflow: hidden;
     cursor: pointer;
     color: white;
@@ -50,11 +53,13 @@
     .desc {
         font-size: 13px;
         margin-bottom: 10px;
-        padding: 10px 10px 0 10px;
+        padding: 0 10px 0 10px;
+        letter-spacing: 1px;
+        font-family: 'Oswald', sans-serif;
     }
 
     .genre {
-        padding: 0 10px 10px 10px;
+        padding: 0 10px 15px 10px;
         font-size: 14px;
         font-weight: 600;
         color: crimson;

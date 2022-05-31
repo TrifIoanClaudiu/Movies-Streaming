@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 .hero-container {
 	height: 80vh;
 	width: 100%;
@@ -12,9 +13,10 @@
 
 .hero-container > h1 {
 	color: #fff;
-	font-size: 40px;
+	font-size: 50px;
 	margin-top: 50px;
 	margin-left: 30px;
+	font-family: 'Special Elite', cursive;
 }
 
 .hero-container > p {
@@ -24,17 +26,19 @@
 	margin-top: 8px;
 	margin-left: 30px;
 	font-weight: 30px;
-	width: 35%;
+	width: 45%;
+	height: 9.8%;
 	color: #fff;
-	font-size: 15px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 16px;
+	letter-spacing: 1px;
+	font-family: 'Special Elite', cursive;
 }
 
 .hero-container .movie-description {
-	text-overflow:ellipsis;
+	text-overflow: nowrap;
 	overflow:hidden;
 	display: -webkit-box !important;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	white-space: normal;
 }
