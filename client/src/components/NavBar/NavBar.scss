@@ -18,6 +18,26 @@
     justify-content: space-between;
     height: 70px;
 
+    .link:hover {
+      animation: pulse 1s normal;
+      transition: .3s;
+      color: red;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      70% {
+        transform: scale(.9);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
     .left {
       display: flex;
       align-items: center;
@@ -32,13 +52,15 @@
         margin-right: 20px;
         cursor: pointer;
       }
+
+
     }
 
     .right {
       display: flex;
       align-items: center;
 
-      span{
+      span {
         cursor: pointer;
       }
 
@@ -46,7 +68,7 @@
       .icon {
         margin: 0px 15px;
 
-        &.Search{
+        &.Search {
           cursor: pointer;
         }
       }

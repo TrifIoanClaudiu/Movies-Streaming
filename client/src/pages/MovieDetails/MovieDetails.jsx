@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import { useLocation } from 'react-router-dom'
 import { updateByDirector } from '../../utils/apiCalls'
 import { getItemValue, setItemValue } from '../../utils/localStorageUtils';
+import StarRating from '../../components/StarRating/StarRating'
 
 export default function MovieDetails() {
     const location = useLocation();
@@ -19,12 +20,12 @@ export default function MovieDetails() {
 
     useEffect(() => {
         setLoading(true);
-        if(getItemValue('reloadCount') < 2) {
-            setItemValue('reloadCount', getItemValue('reloadCount')+1)
+        if (getItemValue('reloadCount') < 2) {
+            setItemValue('reloadCount', getItemValue('reloadCount') + 1)
             window.location.reload();
-          } else {
+        } else {
             setItemValue('reloadCount', 0);
-          }
+        }
         updateByDirector(location.state.movie.director);
         const getCarousels = async () => {
             const genres = ["byDirector", "BestRated"];
@@ -39,7 +40,7 @@ export default function MovieDetails() {
         }
         getCarousels();
         setLoading(false);
-    },[location.state.movie.director], []);
+    }, [location.state.movie.director], []);
     return (
         <div className='movieDetails'>
             <NavBar />
@@ -51,7 +52,10 @@ export default function MovieDetails() {
                     <img src={location.state.movie.img} alt="" />
                     <div className="leftInfo">
                         <div className="rating">
-                            ⭐⭐⭐⭐⭐ {location.state.movie.rating}
+                            <StarRating i = {Math.round(location.state.movie.rating)} />
+                            <div className="ratingScore">
+                                {location.state.movie.rating}
+                            </div>
                         </div>
                         <div className="director">
                             Director: {location.state.movie.director}

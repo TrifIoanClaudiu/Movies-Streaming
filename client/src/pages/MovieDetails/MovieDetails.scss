@@ -33,10 +33,13 @@
 
             .leftInfo {
                 .rating {
-                    color: white;
+                    display: flex;
+                    color: #C2DED1;
                     padding-left: 15px;
-                    font-size: 20px;
-                    cursor: pointer;
+                    font-size: 35px;
+                    .ratingScore{
+                        padding-left: 15px;
+                    }
                 }
                 .director{
                     padding-left: 15px;

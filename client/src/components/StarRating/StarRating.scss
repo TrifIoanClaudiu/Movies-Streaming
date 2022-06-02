@@ -1,0 +1,17 @@
+.StarRating{
+    input[type="radio"]{
+        display: none;
+    }
+    .starsPressed{
+        cursor: pointer;
+        font-size: 35px;
+        color: #ffc107;
+        transition: color 200ms;
+    }
+    .starsUnpressed{
+        cursor: pointer;
+        font-size: 35px;
+        color: #e4e5e9;
+        transition: color 200ms;
+    }
+}
