@@ -52,9 +52,9 @@ export default function MovieDetails() {
                     <img src={location.state.movie.img} alt="" />
                     <div className="leftInfo">
                         <div className="rating">
-                            <StarRating i = {Math.round(location.state.movie.rating)} />
+                            <StarRating i = {Math.round(location.state.movie.rating)} movie = {location.state.movie._id}/>
                             <div className="ratingScore">
-                                {location.state.movie.rating}
+                                {location.state.movie.rating.toFixed(1)}
                             </div>
                         </div>
                         <div className="director">

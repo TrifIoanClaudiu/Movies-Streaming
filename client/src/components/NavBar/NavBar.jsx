@@ -1,6 +1,7 @@
 import "./NavBar.scss";
 import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from '@mui/icons-material/Search';
+import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react'
 import axios from "axios";
@@ -33,10 +34,9 @@ function NavBar() {
             <div className="container">
                 <div className="left">
                     <Link to="/" className="link">
-                        <img
-                            src="https://as1.ftcdn.net/v2/jpg/02/05/18/44/1000_F_205184418_t91TINxilW8CT2aWEqVW9J8b6CKf8iss.jpg"
-                            alt=""
-                        />
+                        <div className="movieIcon">
+                            <MovieFilterIcon />
+                        </div>
                     </Link>
                     <Link to="/" className="link">
                         <span>HOME</span>

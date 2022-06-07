@@ -13,18 +13,16 @@ router.post("/", async (req, res) => {
     }
 });
 
-//UPDATE
+//UPDATE RATING
 
-router.put("/:id", async (req, res) => {
+router.put("/:id/:rating", async (req, res) => {
     try {
-        const updatedMovie = await Movie.findByIdAndUpdate(
-            req.params.id,
-            {
-                $set: req.body,
-            },
-            { new: true }
-        );
-        res.status(200).json(updatedMovie);
+        const doc = await Movie.findById(req.params.id)
+        doc.noVotes = doc.noVotes + 1
+        doc.rating += parseInt(req.params.rating);
+        doc.rating = (doc.rating / doc.noVotes);
+        await doc.save()
+        res.status(200).json(doc);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -83,11 +81,12 @@ router.get("/search", async (req, res) => {
 })
 
 //GET BY TITLE
+
 router.get("/search/:query", async (req, res) => {
     const nameQuery = req.params.query;;
     let listTemp = [];
     try {
-        listTemp = await Movie.find({ title: { $regex: '.*' + nameQuery + '.*', '$options' : 'i' } });
+        listTemp = await Movie.find({ title: { $regex: '.*' + nameQuery + '.*', '$options': 'i' } });
         ids = []
         listTemp.forEach(elem => {
             ids.push(elem._id);

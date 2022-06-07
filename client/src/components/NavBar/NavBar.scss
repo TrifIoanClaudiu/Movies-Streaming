@@ -18,6 +18,12 @@
     justify-content: space-between;
     height: 70px;
 
+    .link {
+      .movieIcon {
+        padding-right: 25px;
+      }
+    }
+
     .link:hover {
       animation: pulse 1s normal;
       transition: .3s;

@@ -193,7 +193,7 @@ router.put("/rating", async (req, res) => {
   let carouselTemp = [];
   carouselTemp = await Movie.find().sort({ rating: -1 }).limit(10);
   try {
-    const filter = "627d6e54f1a6fc3a220b9ffa"
+    const filter = "62842c01b04edea9aaba9931"
     ids = []
     carouselTemp.forEach(elem => {
       ids.push(elem._id);
