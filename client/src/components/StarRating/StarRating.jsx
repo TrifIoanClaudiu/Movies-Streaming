@@ -9,7 +9,6 @@ export default function StarRating({ i, movie }) {
     const [hover, setHover] = useState(null);
 
     const handleClick = async (r) => {
-        console.log(`http://localhost:4000/api/movies/${movie}/${rating}`)
         try {
             const res = await axios.put(`http://localhost:4000/api/movies/${movie}/${r}`);
         } catch (err) {

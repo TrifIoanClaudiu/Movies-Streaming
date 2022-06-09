@@ -7,6 +7,7 @@ function WelcomePage(){
     if (!getItemValue('visited')) {
         return (
             <div className="BodyImage">
+                <h1>Welcome to our fantasy land</h1>
                 <div>
                     <Link to="/" type="button" className="continue-btn" onClick={() => { setItemValue('visited', true) }}>
                         Continue

@@ -6,7 +6,6 @@ const Movie = require("../models/Movie");
 
 
 //CREATE
-
 router.post("/", async (req, res) => {
   const newCarousel = new Carousel(req.body);
 
@@ -82,32 +81,8 @@ router.put("/newest", async (req, res) => {
 router.post("/golden", async (req, res) => {
   let carouselTemp = [];
   carouselTemp = await Movie.aggregate([
-    {
-      $match: {
-        $expr: {
-          $and: [
-            {
-              $gte: [
-                {
-                  $toInt: "$year"
-                },
-                1939
-              ]
-            },
-            {
-              $lte: [
-                {
-                  $toInt: "$year"
-                },
-                1959
-              ]
-            }
-          ]
-        }
-      }
-    },
-    { $sample: { size: 10 } }
-  ])
+    {$match: {$expr: {$and: [ { $gte: [{$toInt: "$year"},1939]},
+                    {$lte: [{$toInt: "$year"}, 1959 ]} ]}}},{ $sample: { size: 10 } }])
   try {
     ids = []
     carouselTemp.forEach(elem => {
@@ -131,17 +106,10 @@ router.post("/golden", async (req, res) => {
 router.put("/golden", async (req, res) => {
   let carouselTemp = [];
   carouselTemp = await Movie.aggregate([
-    {
-      $match: {
-        $expr: {
-          $and: [
+    { $match: {$expr: {$and: [
             { $gte: [{ $toInt: "$year" }, 1939] },
-            { $lte: [{ $toInt: "$year" }, 1959] }
-          ]
-        }
-      }
-    },
-    { $sample: { size: 10 } }
+            { $lte: [{ $toInt: "$year" }, 1959] }]
+        } } },   { $sample: { size: 10 } }
   ])
   try {
     const filter = "62841311530eca1fab06d36c"
@@ -181,13 +149,10 @@ router.post("/rating", async (req, res) => {
   catch (err) {
     res.status(500).json(err)
   }
-
-
 });
 
 
 //UPDATE BEST MOVIES
-
 
 router.put("/rating", async (req, res) => {
   let carouselTemp = [];
@@ -209,6 +174,9 @@ router.put("/rating", async (req, res) => {
   }
 
 });
+
+
+
 //GET
 router.get("/", async (req, res) => {
   const genreQuery = req.query.genre;
@@ -267,6 +235,7 @@ router.post("/genres/:genre", async (req, res) => {
 });
 
 //Update Same Director
+
 router.put("/:director", async (req, res) => {
   let carouselTemp = [];
   carouselTemp = await Movie.aggregate([

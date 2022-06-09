@@ -18,7 +18,6 @@ function LoginPage() {
     const handleLogin = (e) => {
         e.preventDefault();
         login({ email, password }, dispatch)
-
     }
     if (user === null) {
         return (

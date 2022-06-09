@@ -80,7 +80,7 @@ router.get("/search", async (req, res) => {
     }
 })
 
-//GET BY TITLE
+//Search Movie
 
 router.get("/search/:query", async (req, res) => {
     const nameQuery = req.params.query;;

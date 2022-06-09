@@ -18,16 +18,12 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(express.json());
 
-app.get("/", function (req, res) {
-    res.send("Hello");
-})
-
 
 app.use("/api/auth", authRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/carousels", carouselRoute);
 
 
-app.listen(4000, function () {
+app.listen(process.env.PORT || 4000, function () {
     console.log("Backend server is running on port 4000");
 });

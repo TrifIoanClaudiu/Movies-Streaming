@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Literata:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 body {
     margin: 0;
     height: 100%;
 }
 
-.gradient{
+.gradient {
     width: 100%;
     z-index: 1;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.8) 0,
-        rgba(0, 0, 0, 0) 60%,
-        rgba(0, 0, 0, 0.8) 100%
-    );
+    background-image: linear-gradient(to top,
+            rgba(0, 0, 0, 0.8) 0,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.8) 100%);
 }
 
 .BodyImage {
@@ -27,6 +26,16 @@ body {
     width: 100%;
     position: relative;
     font-family: 'Literata', serif;
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Special Elite', cursive;
+        font-size: 40px;
+        color: #E0D8B0;
+    }
 }
 
 .continue-btn {
