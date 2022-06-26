@@ -12,7 +12,8 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "web": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.0",
