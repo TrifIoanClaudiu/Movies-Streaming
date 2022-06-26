@@ -34,7 +34,8 @@ export default function StarRating({ i, movie }) {
                         <StarBorderIcon
                             onMouseEnter={() => setHover(ratingValue)}
                             onMouseLeave={() => setHover(null)}
-                            color={ratingValue < rating ? '#ffc107' : '#e4e5e9'} className={ratingValue <= (hover || rating) ? "starsPressed" : "starsUnpressed"} />
+                            color={ratingValue < rating ? '#ffc107' : '#e4e5e9'}
+                            className={ratingValue <= (hover || rating) ? "starsPressed" : "starsUnpressed"} />
                     </label>)
             })}
         </div>
