@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.movieDetails {
+    background-color: var(--main-color);
+    overflow: hidden;
+
+    @media (max-width: 480px) and (min-width: 320px) {
+        .top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 10px 5px;
+
+            .left {
+
+                img {
+                    max-width: max-content;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+
+            }
+        }
+    }
+
+    .title {
+        h1 {
+            color: #2F8F9D;
+            text-align: center;
+            padding-top: 40px;
+            font-size: 40px;
+            font-family: 'Macondo', cursive;
+        }
+    }
+
+    .top {
+        display: flex;
+        padding: 17px 17px 0px 17px;
+        padding-top: 15px;
+        justify-content: space-between;
+
+        .left {
+            padding-left: 10px;
+
+            img {
+                max-width: max-content;
+                width: 100%;
+                height: 60vh;
+                border: 3px solid white;
+            }
+
+            .leftInfo {
+                .rating {
+                    display: flex;
+                    color: #C2DED1;
+                    padding-left: 15px;
+                    font-size: 35px;
+
+                    .ratingScore {
+                        padding-left: 15px;
+                    }
+                }
+
+                .director {
+                    padding-left: 15px;
+                    padding-top: 5px;
+                    font-size: 20px;
+                    color: #B3E8E5;
+                    font-family: 'Bebas Neue', cursive;
+                }
+            }
+        }
+
+        .right {
+            padding-left: 30px;
+            width: 65vw;
+
+            .desc {
+                color: #82DBD8;
+                font-size: 22px;
+                padding-top: 10px;
+                font-family: 'Lobster', cursive;
+            }
+        }
+    }
+
+    .carousel {
+        padding-top: 10px;
+    }
+}

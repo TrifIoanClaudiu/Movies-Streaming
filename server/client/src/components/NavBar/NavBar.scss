@@ -1,0 +1,102 @@
+.navbar {
+  @media (max-width:550px) {
+    font-size: 10px;
+    .right{
+      #logText{
+        display: none;
+      }
+    }
+  }
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background-color: black;
+  }
+
+  .container {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+
+    .link {
+      .movieIcon {
+        padding-right: 25px;
+      }
+    }
+
+    .link:hover {
+      animation: pulse 1s normal;
+      transition: .3s;
+      color: red;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      70% {
+        transform: scale(.9);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 40px;
+        width: 50px;
+        margin-right: 40px;
+      }
+
+      span {
+        margin-right: 20px;
+        cursor: pointer;
+      }
+
+
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      span {
+        cursor: pointer;
+      }
+
+
+      .icon {
+        margin: 0px 15px;
+
+        &.Search {
+          cursor: pointer;
+        }
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+
+
+    }
+  }
+}

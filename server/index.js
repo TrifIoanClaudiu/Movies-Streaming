@@ -23,6 +23,12 @@ app.use("/api/auth", authRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/carousels", carouselRoute);
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
 
 app.listen(process.env.PORT || 4000, function () {
     console.log("Backend server is running on port 4000");

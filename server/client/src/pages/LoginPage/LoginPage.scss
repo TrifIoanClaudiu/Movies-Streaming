@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Roboto:wght@100&display=swap');
+
+
+.loginImage {
+    background-color: var(--main-color);
+    // background-image: url("https://wallpaperaccess.com/full/1512217.jpg");
+    background: radial-gradient(circle at 50% 35%, white, hsla(30, 20%, 20%, 0.5) 40%) no-repeat center,
+        url('https://wallpaperaccess.com/full/1512217.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+
+    span {
+        color: #b50505;
+        font-weight: 600;
+    }
+
+    h1 {
+        font-size: 80px;
+        color: #187498;
+        font-family: 'Oleo Script Swash Caps', cursive;
+    }
+
+    transform: translate(-50%, -50%);
+    padding: 10px;
+
+    .form {
+        margin-top: 20px;
+        .icon {
+            font-size: 40px;
+            color: #033b50;
+        }
+
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+
+        input {
+            flex: 9;
+            height: 100%;
+            padding: 7px 10px;
+            margin: 5px;
+        }
+
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 25px;
+
+        @media (max-width: 480px) {
+            padding: 25px 30px;
+        }
+
+        #login {
+            box-shadow: inset 0px 0px 15px 3px #0a2451;
+            background: linear-gradient(to bottom, #0a2047 5%, #253c6b 100%);
+            background-color: #233b66;
+            border-radius: 15px;
+            border: 1px solid #1f2f47;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 30px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #1f2f5f;
+        }
+
+        #login:hover {
+            background: linear-gradient(to bottom, #0e2c68 5%, #10264d 100%);
+            background-color: #415989;
+        }
+
+        #login:active {
+            position: relative;
+            top: 1px;
+        }
+
+        #register {
+            box-shadow: inset 0px 0px 15px 3px #b50505;
+            background: linear-gradient(to bottom, #8a0606 5%, #b70404 100%);
+            background-color: #2e466e;
+            border-radius: 15px;
+            border: 1px solid #1f2f47;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 25px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #000000;
+        }
+
+        #register:hover {
+            background: linear-gradient(to bottom, #7b0404 5%, #de0505 100%);
+            background-color: #415989;
+        }
+
+        #register:active {
+            position: relative;
+            top: 1px;
+        }
+    }
+}
