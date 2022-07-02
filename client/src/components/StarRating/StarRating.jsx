@@ -10,7 +10,7 @@ export default function StarRating({ i, movie }) {
 
     const handleClick = async (r) => {
         try {
-            const res = await axios.put(`http://localhost:4000/api/movies/${movie}/${r}`);
+            await axios.put(`http://localhost:4000/api/movies/${movie}/${r}`);
         } catch (err) {
             console.log(err);
         }

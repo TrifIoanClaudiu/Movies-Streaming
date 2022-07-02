@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
+
 .grid{
     background-color: var(--main-color);
     overflow: hidden;
@@ -20,9 +21,21 @@
           }
     }
     .movies{
-        margin: 50px 15px 0px 70px;
+        margin: 50px 15px 0px 30px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 4.5rem 1rem;
+        @media (max-width: 900px){
+            margin-right: 10;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4.5rem 5rem;
+        }
+        @media (max-width: 700px) {
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

@@ -7,7 +7,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import { useLocation } from 'react-router-dom'
 import { updateByDirector } from '../../utils/apiCalls'
-import { getItemValue, setItemValue } from '../../utils/localStorageUtils';
+import { refreshPage } from '../../utils/localStorageUtils';
 import StarRating from '../../components/StarRating/StarRating'
 
 export default function MovieDetails() {
@@ -20,12 +20,7 @@ export default function MovieDetails() {
 
     useEffect(() => {
         setLoading(true);
-        if (getItemValue('reloadCount') < 2) {
-            setItemValue('reloadCount', getItemValue('reloadCount') + 1)
-            window.location.reload();
-        } else {
-            setItemValue('reloadCount', 0);
-        }
+        refreshPage();
         updateByDirector(location.state.movie.director);
         const getCarousels = async () => {
             const genres = ["byDirector", "BestRated"];

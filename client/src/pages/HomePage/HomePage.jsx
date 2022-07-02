@@ -9,6 +9,7 @@ import {UpdateAll} from "../../utils/apiCalls"
 import { AuthContext } from '../../utils/authContext/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { stopScrolling } from '../../utils/localStorageUtils';
+import { refreshPage } from '../../utils/localStorageUtils';
 
 function HomePage() {
     const { user } = useContext(AuthContext);
@@ -17,6 +18,7 @@ function HomePage() {
     stopScrolling(false);
     useEffect(() => {
         UpdateAll();
+        refreshPage();
         setLoading(true);
         const getCarousels = async () => {
             const genres = ["BestRated", "Newest", "Golden"];

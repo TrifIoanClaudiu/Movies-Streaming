@@ -35,7 +35,7 @@ function NavBar() {
                 <div className="left">
                     <Link to="/" className="link">
                         <div className="movieIcon">
-                            <MovieFilterIcon />
+                            <MovieFilterIcon/>
                         </div>
                     </Link>
                     <Link to="/" className="link">
@@ -55,7 +55,7 @@ function NavBar() {
                     </Link>
                     <LogoutIcon className='icon' />
                     <Link onClick={() => dispatch(logout())} to="/login" className="link">
-                        <span >LOG OUT</span>
+                        <span id="logText">LOG OUT</span>
                     </Link>
                 </div>
             </div>

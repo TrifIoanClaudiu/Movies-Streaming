@@ -2,9 +2,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+
 .movieDetails {
     background-color: var(--main-color);
     overflow: hidden;
+
+    @media (max-width: 480px) and (min-width: 320px) {
+        .top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 10px 5px;
+
+            .left {
+
+                img {
+                    max-width: max-content;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+
+            }
+        }
+    }
 
     .title {
         h1 {
@@ -26,7 +52,8 @@
             padding-left: 10px;
 
             img {
-                width: 35vw;
+                max-width: max-content;
+                width: 100%;
                 height: 60vh;
                 border: 3px solid white;
             }
@@ -37,11 +64,13 @@
                     color: #C2DED1;
                     padding-left: 15px;
                     font-size: 35px;
-                    .ratingScore{
+
+                    .ratingScore {
                         padding-left: 15px;
                     }
                 }
-                .director{
+
+                .director {
                     padding-left: 15px;
                     padding-top: 5px;
                     font-size: 20px;

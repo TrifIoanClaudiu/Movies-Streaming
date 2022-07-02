@@ -1,4 +1,12 @@
 .navbar {
+  @media (max-width:550px) {
+    font-size: 10px;
+    .right{
+      #logText{
+        display: none;
+      }
+    }
+  }
   width: 100%;
   color: white;
   font-size: 14px;

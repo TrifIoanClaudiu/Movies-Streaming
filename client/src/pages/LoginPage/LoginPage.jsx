@@ -14,16 +14,22 @@ function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { isFetching, dispatch } = useContext(AuthContext);
+    const [error, setError] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
         login({ email, password }, dispatch)
+        const timer = setTimeout(() => {
+            setError(true);
+          }, 300);
+          return () => clearTimeout(timer);
     }
     if (user === null) {
         return (
                 <div div className="loginImage" >
                     <div className="login">
                         <h1>Login</h1>
+                        {error && <span>Sorry, username or password are incorrect!</span>}
                         <div className="form">
                             <EmailIcon className='icon' />
                             <input type="email"

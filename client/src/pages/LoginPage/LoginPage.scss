@@ -1,21 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Roboto:wght@100&display=swap');
 
+
 .loginImage {
     background-color: var(--main-color);
     // background-image: url("https://wallpaperaccess.com/full/1512217.jpg");
     background: radial-gradient(circle at 50% 35%, white, hsla(30, 20%, 20%, 0.5) 40%) no-repeat center,
         url('https://wallpaperaccess.com/full/1512217.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 166vh;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     text-align: center;
     overflow: hidden;
     margin: 0;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login {
+
+    span {
+        color: #b50505;
+        font-weight: 600;
+    }
 
     h1 {
         font-size: 80px;
@@ -23,13 +32,11 @@
         font-family: 'Oleo Script Swash Caps', cursive;
     }
 
-    position: absolute;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
 
     .form {
+        margin-top: 20px;
         .icon {
             font-size: 40px;
             color: #033b50;
@@ -51,7 +58,12 @@
     .buttons {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 25px 25px;
+
+        @media (max-width: 480px) {
+            padding: 25px 30px;
+        }
 
         #login {
             box-shadow: inset 0px 0px 15px 3px #0a2451;

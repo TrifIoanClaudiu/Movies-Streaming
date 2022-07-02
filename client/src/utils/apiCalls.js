@@ -10,7 +10,7 @@ const UpdateBest = () => {
 
     const updateBestCarousel = async () => {
         try {
-            const res = await axios.put(`http://localhost:4000/api/carousels/rating`)
+            await axios.put(`http://localhost:4000/api/carousels/rating`)
         } catch (err) {
             console.log(err);
         }
@@ -19,20 +19,20 @@ const UpdateBest = () => {
 }
 
 const UpdateNewest = () => {
-        const updateNewestCarousel = async () => {
-            try {
-                const res = await axios.put(`http://localhost:4000/api/carousels/newest`);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        updateNewestCarousel();
+    const updateNewestCarousel = async () => {
+        try {
+            await axios.put(`http://localhost:4000/api/carousels/newest`);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    updateNewestCarousel();
 }
 
 const UpdateGolden = () => {
-    const updateGoldenCarousel = async () =>{
+    const updateGoldenCarousel = async () => {
         try {
-            const res = await axios.put(`http://localhost:4000/api/carousels/golden`);
+            await axios.put(`http://localhost:4000/api/carousels/golden`);
         } catch (err) {
             console.log(err);
         }
@@ -40,11 +40,11 @@ const UpdateGolden = () => {
     updateGoldenCarousel();
 }
 
-const updateByDirector = (director) =>{
-    
+const updateByDirector = (director) => {
+
     const updateDirectorCarousel = async () => {
         try {
-            const res = await axios.put(`http://localhost:4000/api/carousels/` + director)
+            await axios.put(`http://localhost:4000/api/carousels/` + director)
         } catch (err) {
             console.log(err);
         }
@@ -53,13 +53,12 @@ const updateByDirector = (director) =>{
 }
 
 
-const login = async (user, dispatch) =>{
+const login = async (user, dispatch) => {
     dispatch(loginStart());
-    try{
+    try {
         const res = await axios.post("http://localhost:4000/api/auth/login", user);
         dispatch(loginSuccess(res.data));
-    }catch(err){
-        alert("Email or password incorrect");
+    } catch (err) {
         dispatch(loginFailure());
     }
 }

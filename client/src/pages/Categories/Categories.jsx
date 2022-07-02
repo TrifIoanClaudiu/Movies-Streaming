@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import Footer from '../../components/Footer/Footer';
 import Carousel from '../../components/Carousel/Carousel';
 import "./Categories.scss"
 import axios from 'axios';
-
 export default function Categories() {
     const [loading, setLoading] = useState(false);
     const [Carousels, setCarousels] = useState([]);
@@ -28,12 +26,10 @@ export default function Categories() {
         <div className="Categories">
             <NavBar />
             <div className="Carousels">
-
                 {!loading && Carousels.map((carousel) => (
                     <Carousel key={carousel._id} carousel={carousel} />
                 ))}
             </div>
-            <Footer />
         </div>
     )
 }

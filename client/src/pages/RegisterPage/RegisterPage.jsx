@@ -10,6 +10,7 @@ import axios from "axios";
 function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(false);
     const navigate = useNavigate();
     const handleFinish = async (e) => {
         e.preventDefault();
@@ -18,7 +19,7 @@ function RegisterPage() {
             navigate('/login');
         }
         catch (err) {
-            console.log(err);
+            setError(true);
         }
     }
     stopScrolling(true);
@@ -26,6 +27,7 @@ function RegisterPage() {
         <div className="registerImage">
             <div className="login">
                 <h1>Register</h1>
+                {error && <span>Sorry, the username is already taken!</span>}
                 <div className="form">
                     <EmailIcon className='icon' />
                     <input
